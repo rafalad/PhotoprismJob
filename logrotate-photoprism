@@ -1,0 +1,15 @@
+# Konfiguracja logrotate dla logów Photoprism
+# Plik: /etc/logrotate.d/photoprism-scan
+
+/mnt/shared/Others/logs/photoprism/*.log {
+    daily
+    missingok
+    rotate 30
+    compress
+    delaycompress
+    notifempty
+    create 644 zotac zotac
+    postrotate
+        # Opcjonalnie: wyślij sygnał do procesu jeśli potrzeba
+    endscript
+}
