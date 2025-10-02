@@ -57,8 +57,9 @@ check_photoprism_pod() {
         return 1
     fi
     
-    log "INFO" "Pod Photoprism znaleziony: $pod_name (Status: $pod_status)"
-    # Zwróć tylko nazwę poda bez logowania do stdout
+    # Loguj tylko do pliku, nie do stdout żeby nie mieszać z returnem
+    echo "[$(date '+%Y-%m-%d %H:%M:%S')] [INFO] Pod Photoprism znaleziony: $pod_name (Status: $pod_status)" >> "$LOG_FILE"
+    # Zwróć tylko nazwę poda
     printf "%s" "$pod_name"
     return 0
 }
