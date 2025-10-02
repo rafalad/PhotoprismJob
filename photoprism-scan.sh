@@ -58,7 +58,8 @@ check_photoprism_pod() {
     fi
     
     log "INFO" "Pod Photoprism znaleziony: $pod_name (Status: $pod_status)"
-    echo "$pod_name"
+    # Zwróć tylko nazwę poda bez logowania do stdout
+    printf "%s" "$pod_name"
     return 0
 }
 
